@@ -1,0 +1,159 @@
+
+lxtx.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A0001
+  rotate: true
+  xy: 584, 547
+  size: 200, 323
+  orig: 200, 323
+  offset: 0, 0
+  index: -1
+A0002
+  rotate: false
+  xy: 738, 262
+  size: 131, 283
+  orig: 131, 283
+  offset: 0, 0
+  index: -1
+A0003
+  rotate: false
+  xy: 2, 606
+  size: 580, 205
+  orig: 580, 205
+  offset: 0, 0
+  index: -1
+A0004
+  rotate: false
+  xy: 2, 813
+  size: 580, 207
+  orig: 580, 207
+  offset: 0, 0
+  index: -1
+A0005
+  rotate: true
+  xy: 944, 807
+  size: 213, 76
+  orig: 213, 76
+  offset: 0, 0
+  index: -1
+A0006
+  rotate: false
+  xy: 584, 749
+  size: 358, 271
+  orig: 358, 271
+  offset: 0, 0
+  index: -1
+A0007
+  rotate: false
+  xy: 474, 282
+  size: 262, 263
+  orig: 262, 263
+  offset: 0, 0
+  index: -1
+A0008
+  rotate: false
+  xy: 2, 309
+  size: 470, 295
+  orig: 470, 295
+  offset: 0, 0
+  index: -1
+A0009
+  rotate: false
+  xy: 2, 12
+  size: 470, 295
+  orig: 470, 295
+  offset: 0, 0
+  index: -1
+Y0001
+  rotate: true
+  xy: 474, 10
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0002
+  rotate: true
+  xy: 576, 10
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0003
+  rotate: true
+  xy: 871, 275
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0004
+  rotate: true
+  xy: 883, 3
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+bu2
+  rotate: true
+  xy: 678, 55
+  size: 205, 96
+  orig: 205, 96
+  offset: 0, 0
+  index: -1
+bu3
+  rotate: false
+  xy: 776, 95
+  size: 105, 165
+  orig: 105, 165
+  offset: 0, 0
+  index: -1
+
+lxtx2.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Y0005
+  rotate: false
+  xy: 2, 396
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0006
+  rotate: false
+  xy: 2, 294
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0007
+  rotate: false
+  xy: 2, 192
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0008
+  rotate: true
+  xy: 274, 226
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+Y0009
+  rotate: false
+  xy: 2, 90
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+bu1
+  rotate: false
+  xy: 376, 356
+  size: 120, 140
+  orig: 120, 140
+  offset: 0, 0
+  index: -1
