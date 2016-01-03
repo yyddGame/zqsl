@@ -1,6 +1,7 @@
 package view
 {
 	import flash.geom.Point;
+	import flash.ui.Keyboard;
 	
 	import event.GameEvent;
 	
@@ -11,6 +12,7 @@ package view
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
@@ -178,6 +180,41 @@ package view
 			
 			
 			addEventListener(Event.ENTER_FRAME,frameHandler);
+			stage.addEventListener(KeyboardEvent.KEY_DOWN,keyDownHandler);
+			stage.addEventListener(KeyboardEvent.KEY_UP,keyUpHandler);
+		}
+		
+		private function keyUpHandler(e:KeyboardEvent):void
+		{
+			isMove = false;
+		}
+		
+		private function keyDownHandler(e:KeyboardEvent):void
+		{
+			switch(e.keyCode)
+			{
+				case Keyboard.A:
+					isMove = true;
+					_spineboyExample.scaleX = -1
+					direction = 1;
+					break;
+				case Keyboard.D:
+					isMove = true;
+					_spineboyExample.scaleX = 1;	
+					direction = 2;
+					break;
+				case Keyboard.J:
+					
+					break;
+				case Keyboard.K:
+					
+					break;	
+				default:
+				{
+					break;
+				}
+			}
+			
 		}
 		
 		private function frameHandler(e:Event):void
@@ -190,7 +227,8 @@ package view
 			
 		}
 		
-		private function boyRun(direction:uint):void{
+		private function boyRun(direction:uint):void
+		{
 			
 			if( direction == 2 && _spineboyExample.x + 100 >= stage.stageWidth - _spineboyExample.width - 100)
 			{
