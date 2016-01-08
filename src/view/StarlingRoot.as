@@ -113,30 +113,20 @@ package view
 				
 				if(touch.phase == TouchPhase.BEGAN)
 				{
-					
-					_spineboyExample.setState("yidong");
-					
+										
 					if(e.target == leftBtn)
 					{
-						isMove = true;
-						_spineboyExample.scaleX = -1
-						//_spineboyExample.x = 100 - _spineboyExample.x;	
-						direction = 1;
+						left()
 					}
 					else if(e.target == rightBtn)
 					{
-						isMove = true;
-						_spineboyExample.scaleX = 1
-						//_spineboyExample.x = 0;	
-						direction = 2;
+						right();
 					}
 					
 				}
 				else if(touch.phase == TouchPhase.ENDED)
 				{
-					isMove = false;
-					//待机
-					_spineboyExample.setState("daiji");
+					stopMove()
 				}
 				else if(touch.phase == TouchPhase.MOVED)
 				{
@@ -160,12 +150,9 @@ package view
 					}	
 					else
 					{
-						isMove = false;
-						leftBtn.state = ButtonState.UP;
-						rightBtn.state = ButtonState.UP;
+						stopMove();
 					}
 				}
-				
 				
 			}
 			
@@ -183,25 +170,45 @@ package view
 			stage.addEventListener(KeyboardEvent.KEY_DOWN,keyDownHandler);
 			stage.addEventListener(KeyboardEvent.KEY_UP,keyUpHandler);
 		}
-		
+		private function left():void{
+			_spineboyExample.setState("yidong");
+			//isMove = true;
+			_spineboyExample.scaleX = -1
+			direction = 1;
+		}
+		private function right():void{
+			_spineboyExample.setState("yidong");
+			//isMove = true;
+			_spineboyExample.scaleX = 1
+			direction = 2;
+		}
+		private function stopMove():void{
+			isMove = false;
+			leftBtn.state = ButtonState.UP;
+			rightBtn.state = ButtonState.UP;
+			_spineboyExample.setState("daiji");
+		}
 		private function keyUpHandler(e:KeyboardEvent):void
 		{
-			isMove = false;
+			stopMove();
 		}
 		
 		private function keyDownHandler(e:KeyboardEvent):void
 		{
+//			if(!_spineboyExample.isEnd)
+//			{
+//				return;
+//			}
 			switch(e.keyCode)
 			{
 				case Keyboard.A:
-					isMove = true;
-					_spineboyExample.scaleX = -1
-					direction = 1;
+			    case Keyboard.LEFT:
+					left();
 					break;
 				case Keyboard.D:
-					isMove = true;
-					_spineboyExample.scaleX = 1;	
-					direction = 2;
+			    case Keyboard.RIGHT:
+					//right();
+					skeleton.state.setAnimationByName(0, "daiji", true);
 					break;
 				case Keyboard.J:
 					

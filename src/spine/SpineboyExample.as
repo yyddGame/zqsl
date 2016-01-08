@@ -60,43 +60,31 @@ public class SpineboyExample extends Sprite
 
 	public var isEnd:Boolean = true;
 	private var _state:String;
+	public var modelContainer:Sprite
 	public function SpineboyExample () {
+		modelContainer = new Sprite();
+		modelContainer.width = 150;
+		modelContainer.height = 150;
+		addChild(modelContainer);
 		var spineAtlas:Atlas = new Atlas(new SpineboyAtlas(), new StarlingTextureLoader(new SpineboyAtlasTexture()));
 		var attachmentLoader:AttachmentLoader = new AtlasAttachmentLoader(spineAtlas);
 		var json:SkeletonJson = new SkeletonJson(attachmentLoader);
 		json.scale = 0.6;
 		var skeletonData:SkeletonData = json.readSkeletonData(new SpineboyJson());
-
 		var stateData:AnimationStateData = new AnimationStateData(skeletonData);
-//		stateData.setMixByName("run", "jump", 0.2);
-//		stateData.setMixByName("jump", "run", 0.4);
-//		stateData.setMixByName("jump", "jump", 0.2);
 
 		skeleton = new SkeletonAnimation(skeletonData, true,stateData);
 		skeleton.skeleton.skinName = "pifu1"
-		skeleton.x = 100;
-		skeleton.y = 560;
+
 		skeleton.scale = 0.5
-		skeleton.state.onStart.add(function (trackIndex:int) : void {
-//			trace(trackIndex + " start: " + skeleton.state.getCurrent(trackIndex));
-		});
-		skeleton.state.onEnd.add(function (trackIndex:int) : void {
-//			trace(trackIndex + " end: " + skeleton.state.getCurrent(trackIndex));
-//			isEnd = true;
-		});
-		skeleton.state.onComplete.add(function (trackIndex:int, count:int) : void {
-//			trace(trackIndex + " complete: " + skeleton.state.getCurrent(trackIndex) + ", " + count);
-		});
-		skeleton.state.onEvent.add(function (trackIndex:int, event:Event) : void {
-//			trace(trackIndex + " event: " + skeleton.state.getCurrent(trackIndex) + ", "
-//				+ event.data.name + ": " + event.intValue + ", " + event.floatValue + ", " + event.stringValue);
-		});
 
 		skeleton.state.setAnimationByName(0, "daiji", true);
-		//skeleton.state.addAnimationByName(0, "jump", false, 3);
+		//skeleton.state.addAnimationByName(0, "gongji1", false, 3);
 		//skeleton.state.addAnimationByName(0, "run", true, 0);
 
-		addChild(skeleton);
+		modelContainer.addChild(skeleton);
+		modelContainer.x = 100;
+		modelContainer.y = 560;
 		Starling.juggler.add(skeleton);
 
 		addEventListener(TouchEvent.TOUCH, onClick);
@@ -105,9 +93,9 @@ public class SpineboyExample extends Sprite
 	private function onClick (event:TouchEvent) : void {
 		var touch:Touch = event.getTouch(this);
 		if (touch && touch.phase == TouchPhase.BEGAN) {
-//			skeleton.state.setAnimationByName(0, "jump", false);
-//			skeleton.state.addAnimationByName(0, "run", true, 0);
 		}
+	}
+	private function completeHandler():void{
 	}
 	public function setState(state:String,isLoop:Boolean = true):void
 	{
@@ -116,25 +104,6 @@ public class SpineboyExample extends Sprite
 		isEnd = false;
 		isEnd = isLoop;
 		skeleton.state.setAnimationByName(0, state, isLoop).onEnd = onEnd;
-		switch(state)
-		{
-			case "death":
-				break;
-			case "hit":
-				break
-			case "idle":
-				break
-			case "jump":
-				break
-			case "run":
-				break;
-			case "shoot":
-				break
-			case "walk":
-				break
-			default:
-				break;
-		}
 		if(!isLoop){
 			skeleton.state.addAnimationByName(0, "daiji", true, 0);
 			
